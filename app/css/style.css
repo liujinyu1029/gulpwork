@@ -1,0 +1,44 @@
+* { margin:0; padding:0; border:0 }
+body { background:#fff; font:14px/1.6 "Microsoft Yahei", "Tahoma", "SimSun"; color:#252525 }
+input, button, select { vertical-align:middle }
+.fl { float:left; display:inline }
+.fr { float:right; display:inline }
+ul { list-style:none }
+a { text-decoration:none; color:#252525 }
+a:hover { color:#ee842f }
+h1, h, h3, h4, h5, h6 { font-weight:normal }
+i, em { font-style:normal }
+a:hover { color:#ee842f }
+.clearfix { zoom:1 }
+.clearfix:after { content:"."; display:block; clear:both; visibility:hidden; height:0 }
+
+body{
+    background: url("../images/11.jpg") no-repeat center top;}
+.box{
+    margin: 0 auto;
+    width:1000px;}
+.top_dzcity{ margin-top: 50px;}
+.top_dzcity .fl{}
+.top_dzcity .fl ul{}
+.top_dzcity .fl ul li{}
+.top_dzcity .fl ul li.on{}
+.top_dzcity .fl .add{}
+.top_dzcity .fr{}
+.top_dzcity .fr span{}
+.con_sk_24h{}
+.con_sk_24h .sk{}
+.con_sk_24h .sk .t{}
+.con_sk_24h .sk .t .l{}
+.con_sk_24h .sk .t .l span{}
+.con_sk_24h .sk .t .l em{}
+.con_sk_24h .sk .t .l i{}
+.con_sk_24h .sk .t .r{}
+.con_sk_24h .sk .t .r span{}
+.con_sk_24h .sk .t .r i{}
+.con_sk_24h .sk .t .r span{}
+.con_sk_24h .sk .t .r .d{}
+.con_sk_24h .sk .t .r .d span{}
+.con_sk_24h .sk .t .r .d i{}
+.con_sk_24h .sk .t .r .d span{}
+.con_sk_24h .sk .t .r{}
+.con_sk_24h{}
