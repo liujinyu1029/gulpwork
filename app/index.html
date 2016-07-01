@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Bootstrap 101 Template</title>
+    <title>天气预报-中国天气网</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
     <link rel="stylesheet" href="css/style.css"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,20 +36,20 @@
 
 <div class="con_sk_24h box">
     <div class="sk">
-        <div class="t">
+        <div class="t clearfix">
             <div class="l">
                 <span>26</span>
                 <em>℃</em>
                 <i class="warn"></i>
             </div>
             <div class="r">
-                <div class="d">
-                    <span>↑</span>
+                <div class="d clearfix">
+                    <em>↑</em>
                     <i class="png40 d01"></i>
                     <span>26℃</span>
                 </div>
-                <div class="n">
-                    <span>↓</span>
+                <div class="n clearfix">
+                    <em>↓</em>
                     <i class="png40 n01"></i>
                     <span>26℃</span>
                 </div>
@@ -87,17 +87,29 @@
             <div class="l fl">
                 <span>整点天气实况</span>
                 <em>|</em>
-                <span>24小时天气</span>
+                <span class="on">24小时天气</span>
             </div>
             <span class="r fr">11:24实况</span>
         </div>
+        <div class="curve_livezs" id="curve">
+            <div class="time">
+            </div>
+            <div class="wpic">
+            </div>
+            <div id="biggt" class="biggt">
+            </div>
+            <div class="tem">
+            </div>
 
+        </div>
     </div>
 </div>
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
+<script src="js/raphael.js"></script>
+<script src="js/index.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 </body>
