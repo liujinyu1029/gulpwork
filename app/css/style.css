@@ -364,6 +364,12 @@ i {
 }
 .con_sk_24h {
     padding-top: 10px;
+    height: 478px;
+    background: #0676d4;
+    background: -webkit-linear-gradient(#0676d4, #80c0e8); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#0676d4, #80c0e8); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#0676d4, #80c0e8); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#0676d4, #80c0e8); /* 标准的语法 */
 }
 .con_sk_24h .sk {
 }
@@ -493,15 +499,32 @@ i {
     margin-right: 22px;
 }
 #curve { height: 511px; position: relative; width: 100%;}
-#curve em { font-size: 12px; color: #888; line-height: 20px; position: absolute; text-align: center; }
-#curve .time em { top: 20px; }
+#curve em { font-size: 12px; color: #fff; line-height: 20px; position: absolute; text-align: center; }
+#curve .time em { top: 200px; }
 #curve .tem em { top: 118px; color: #fff }
-#curve .biggt { left: 0; position: absolute; top: 94px; width: 100%; }
+#curve .biggt { left: 0; position: absolute; top: 0px; width: 100%; }
 #curve .wind { left: 0; position: absolute; top: 315px; width: 100%; }
 #curve .wind span { line-height: 22px; position: absolute; text-align: center; }
 #curve .winds { left: 0; position: absolute; top: 0; width: 100%; }
-#curve .wpic div { position: absolute; top: 30px; z-index: 9; }
-#curve .wpic big { cursor: pointer; margin: 0 auto; }
+#curve .wpic div { position: absolute; z-index: 9; }
+#curve .wpic .weatxt{
+    height: 28px;
+    line-height: 28px;
+    color: #666;
+    top: 171px; text-align: center;
+    opacity: 0.8;
+    float: left;}
+#curve .weatxt.w0{
+    background: #aaa;}
+#curve .weatxt.w1{
+    background: #c8e3fc;}
+#curve .weatxt.w2{
+    background: #b6d1e2;}
+#curve .weatxt.w3{
+    background: #aadbd0;}
+#curve .weatxt.w4{
+    background: #a4b1e4;}
+
 
 #curve .winf em { top: 185px; }
 #curve .winl em { top: 212px; }
