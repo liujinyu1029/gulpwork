@@ -649,8 +649,9 @@ i {
 .fo15 ul li em.lv3{background: #8fa6bc none repeat scroll 0 0;}
 .fo15 ul li em.lv4{background: #9c9a95 none repeat scroll 0 0;}
 
-
-.fo15 .cont .linecont{
+.fo15 .cont .contbox{
+    position: relative;}
+.fo15 .cont .contbox .linecont{background:#eee;
     position: absolute;
     top: 70px;
     width: 1590px;

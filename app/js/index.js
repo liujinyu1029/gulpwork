@@ -38,12 +38,9 @@ for (var i = 0; i <= 23; i++) {
             this.arrCircle = [];
             this.arrWinS = [];
         },
-        _initWeaData: function (oneDayArr) {//参数为  一天的数组
-            this._clearArr();
+        _makeData: function () {
             var _this = this;
-            //console.log(oneDayArr)
-            $.each(oneDayArr, function (i, v) {
-
+            $.each(_this.arrDatas, function (i, v) {
                 _this.arrTime.push(v.time);
                 //_this.arrWeapic.push(d[1]);
                 _this.arrWeaTxt.push(v.wea);
@@ -52,7 +49,16 @@ for (var i = 0; i <= 23; i++) {
                 //H.arrWinl.push(d[5]);
                 //H.arrWinS.push(d[6].match(/\d+/)[0]);
             })
-            _this.len = oneDayArr.length;
+        },
+        arrDatas:null,
+        _initWeaData: function (arrDatas) {//参数为  一天的数组
+            this._clearArr();
+            var _this = this;
+            _this.arrDatas = arrDatas;
+
+            _this._makeData()
+            _this.len = arrDatas.length;
+
             //生成 svg的circle数据  和 path的线数据
             var temMin = this._getArrMin(this.arrTem);//求出这一组温度的最大最小值
             var temMax = this._getArrMax(this.arrTem);
@@ -63,8 +69,8 @@ for (var i = 0; i <= 23; i++) {
                 var temD = (this.svgH - this.topPadding - this.bottomPadding) / 1;
             }
             this.cel_w = this.svgW / this.len;
-            var arrPath = [];
             var startPoint, circleX, circleY;
+            var arrPath = [];
             $.each(this.arrTem, function (i, v) {
                 circleX = _this.cel_w * i + _this.cel_w / 2;
                 if (!i) {
@@ -74,7 +80,9 @@ for (var i = 0; i <= 23; i++) {
                 _this.arrCircle.push({'x': circleX, 'y': circleY});
                 arrPath.push([circleX, circleY]);
             })
+
             this.linePath = arrPath.join(',');
+            this.arrPath = arrPath.slice();
             this.fillPath = startPoint + ',' + this.linePath + ',' + circleX + "," + this.svgH;
         },
         svgW: 1000,
@@ -82,6 +90,7 @@ for (var i = 0; i <= 23; i++) {
         cel_w: 0,
         linePath: '',
         fillPath: '',
+        arrPath:[],
         arrCircle: []
     }
 
@@ -146,10 +155,100 @@ for (var i = 0; i <= 23; i++) {
             $weapic.append($('<div class="weatxt w' + H.arrWeaTxt[i] + '" style="width:' + H.cel_w + 'px;left:' + H.cel_w * i + 'px;">' +
                 arrwea[H.arrWeaTxt[i]] + '</div>'));
         }
-        console.log(H.fillPath)
         line.attr({"path": "M" + H.linePath});
         fill.attr({"path": "M" + H.fillPath})
     }()
 
+    //============整点与24小时曲线 begin=================
+    !function () {
+        var temp15daydatas = [];
+        var date = new Date();
+        var week = ['周一','周二','周三','周四','周五','周六','周日']
+        var now = 1;
+        for(var i = 0;i<15;i++){
+            var temp = parseInt(Math.random()*40);
+            var newDate = new Date();
+            newDate.setDate(date.getDate()+i)
+            temp15daydatas.push({
+                t:newDate.getDate()<10?"0"+newDate.getDate():newDate.getDate(),
+                d:week[newDate.getDay()],
+                weaD:"d0"+newDate.getDay(),
+                weaN:'n0'+newDate.getDate(),
+                temD:temp,
+                temN:temp-parseInt(Math.random()*15),
+                wx:"南风",
+                wl:"4级别",
+                blueLv:"lv"+(parseInt(Math.random()*3)+1)
+            })
+        }
+        //=================datas temp =================
+        var TL = new CreatLine();//上边的线  白天的线
+        TL.svgH = 80;
+        TL.topPadding = 20
+        TL.bottomPadding = 0
+        TL._makeData = function () {
+            var _this = this;
+            $.each(_this.arrDatas, function (i, v) {
+                _this.arrTime.push(v.t +"日（"+ v.d+")");
+                _this.arrTem.push(parseInt(v.temD));
+            })
+        }
+        TL._initWeaData(temp15daydatas);
+
+        var paper = Raphael('d15cure', TL.svgW, 160);
+        var line = paper.path().attr({"stroke": "#fff", "stroke-width": 2});
+        var objCircle = [];  //存储点circle对象的 数组
+        var originX = TL.arrCircle[0].x;
+        var originY = TL.arrCircle[0].y;
+        //
+        for (var i = 0; i <= TL.len - 1; i++) {
+            //时间
+            var circleX = TL.arrCircle[i].x;
+            var circleY = TL.arrCircle[i].y;
+            var cir = paper.circle(originX, originY, 3).attr({
+                'fill': '#fff',
+                'stroke': '#fff',
+                'stroke-width': 1,
+                'cx': circleX,
+                'cy': circleY
+            });
+            objCircle.push(cir);
+            //天气图标
+        }
+        line.attr({"path": "M" + TL.linePath});
+        //fill.attr({"path": "M" + H.fillPath})
+
+        var BL = new CreatLine();//下边的线 也就是夜间的线
+        BL.svgH = 160;
+        BL.topPadding = 80
+        BL.bottomPadding = 20
+        BL._makeData = function () {
+            var _this = this;
+            $.each(_this.arrDatas, function (i, v) {
+                _this.arrTime.push(v.t +"日（"+ v.d+")");
+                //_this.arrWeapic.push(d[1]);
+                //_this.arrWeaTxt.push(v.wea);
+                _this.arrTem.push(parseInt(v.temN));
+                //H.arrWinf.push(d[4]);
+                //H.arrWinl.push(d[5]);
+                //H.arrWinS.push(d[6].match(/\d+/)[0]);
+            })
+        }
+        BL._initWeaData(temp15daydatas);
+        paper.path().attr({path: "M"+ BL.linePath,"stroke": "#fff", "stroke-width": 2});
+        for (var i = 0; i <= BL.len - 1; i++) {
+            //时间
+            var circleX = BL.arrCircle[i].x;
+            var circleY = BL.arrCircle[i].y;
+            var cir = paper.circle(circleX, circleY, 3).attr({
+                'fill': '#fff',
+                'stroke': '#fff',
+                'stroke-width': 1
+            });
+        }
+        //paper.path().attr({fill:"#fff",opacity:0.5,path:"M"+ H.linePath +"," +BL.arrCircle.reverse().join(',')})
+        paper.path().attr({fill:"#fff",opacity:0.5,path:"M"+ TL.linePath +"," +BL.arrPath.reverse().join(','),stroke:'none'})
+
+    }()
 
 })()
