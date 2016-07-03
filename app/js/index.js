@@ -182,7 +182,8 @@ for (var i = 0; i <= 23; i++) {
             })
         }
         //=================datas temp =================
-        var TL = new CreatLine();//上边的线  白天的线
+        //上边的线  白天的线  初始化
+        var TL = new CreatLine();
         TL.svgH = 80;
         TL.topPadding = 20
         TL.bottomPadding = 0
@@ -195,8 +196,25 @@ for (var i = 0; i <= 23; i++) {
         }
         TL._initWeaData(temp15daydatas);
 
+        //下边的线 也就是夜间的线 初始化
+        var BL = new CreatLine();
+        BL.svgH = 160;
+        BL.topPadding = 80
+        BL.bottomPadding = 20
+        BL._makeData = function () {
+            var _this = this;
+            $.each(_this.arrDatas, function (i, v) {
+                _this.arrTem.push(parseInt(v.temN));
+            })
+        }
+        BL._initWeaData(temp15daydatas);
+
         var paper = Raphael('d15cure', TL.svgW, 160);
-        var line = paper.path().attr({"stroke": "#fff", "stroke-width": 2});
+
+        //中间背景 填充
+        paper.path().attr({fill:"#f3f8fd",opacity:0.5,path:"M"+ TL.linePath +"," +BL.arrPath.reverse().join(','),stroke:'none'})
+
+        var line = paper.path().attr({"stroke": "#fc8763", "stroke-width": 2});
         var objCircle = [];  //存储点circle对象的 数组
         var originX = TL.arrCircle[0].x;
         var originY = TL.arrCircle[0].y;
@@ -205,10 +223,10 @@ for (var i = 0; i <= 23; i++) {
             //时间
             var circleX = TL.arrCircle[i].x;
             var circleY = TL.arrCircle[i].y;
-            var cir = paper.circle(originX, originY, 3).attr({
-                'fill': '#fff',
-                'stroke': '#fff',
-                'stroke-width': 1,
+            var cir = paper.circle(originX, originY, 5).attr({
+                'fill': '#fc8763',
+                'stroke': 'none',
+                'z-index':3332,
                 'cx': circleX,
                 'cy': circleY
             });
@@ -218,36 +236,18 @@ for (var i = 0; i <= 23; i++) {
         line.attr({"path": "M" + TL.linePath});
         //fill.attr({"path": "M" + H.fillPath})
 
-        var BL = new CreatLine();//下边的线 也就是夜间的线
-        BL.svgH = 160;
-        BL.topPadding = 80
-        BL.bottomPadding = 20
-        BL._makeData = function () {
-            var _this = this;
-            $.each(_this.arrDatas, function (i, v) {
-                _this.arrTime.push(v.t +"日（"+ v.d+")");
-                //_this.arrWeapic.push(d[1]);
-                //_this.arrWeaTxt.push(v.wea);
-                _this.arrTem.push(parseInt(v.temN));
-                //H.arrWinf.push(d[4]);
-                //H.arrWinl.push(d[5]);
-                //H.arrWinS.push(d[6].match(/\d+/)[0]);
-            })
-        }
-        BL._initWeaData(temp15daydatas);
-        paper.path().attr({path: "M"+ BL.linePath,"stroke": "#fff", "stroke-width": 2});
+
+        paper.path().attr({path: "M"+ BL.linePath,"stroke": "#79baea", "stroke-width": 2});
         for (var i = 0; i <= BL.len - 1; i++) {
             //时间
             var circleX = BL.arrCircle[i].x;
             var circleY = BL.arrCircle[i].y;
-            var cir = paper.circle(circleX, circleY, 3).attr({
-                'fill': '#fff',
-                'stroke': '#fff',
-                'stroke-width': 1
+            var cir = paper.circle(circleX, circleY, 5).attr({
+                'fill': '#79baea',
+                'stroke': 'none'
             });
         }
         //paper.path().attr({fill:"#fff",opacity:0.5,path:"M"+ H.linePath +"," +BL.arrCircle.reverse().join(',')})
-        paper.path().attr({fill:"#fff",opacity:0.5,path:"M"+ TL.linePath +"," +BL.arrPath.reverse().join(','),stroke:'none'})
 
     }()
 

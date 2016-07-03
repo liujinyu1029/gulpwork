@@ -571,11 +571,13 @@ i {
     top: 212px;
 }
 .fo15 {
+    height: 437px;
     margin-top: 20px;
 }
 .fo15 h3.tit {
-    line-height: 40px;
-    text-indent: 22px;
+    line-height: 34px;
+    padding-top: 6px;
+    text-indent: 17px;
 }
 .fo15 .cont {
     height: 377px;
@@ -633,29 +635,166 @@ i {
     width: 100%;
 }
 .fo15 ul li em {
-
     border-radius: 8px;
-
     color: #fff;
     display: inline-block;
     margin-top: 9px;
     padding: 0 8px;
-
-
-
 }
-.fo15 ul li em.lv1{background: #1f8ce8 none repeat scroll 0 0;}
-.fo15 ul li em.lv2{background: #66bfff none repeat scroll 0 0;}
-.fo15 ul li em.lv3{background: #8fa6bc none repeat scroll 0 0;}
-.fo15 ul li em.lv4{background: #9c9a95 none repeat scroll 0 0;}
-
-.fo15 .cont .contbox{
-    position: relative;}
-.fo15 .cont .contbox .linecont{background:#eee;
+.fo15 ul li em.lv1 {
+    background: #1f8ce8 none repeat scroll 0 0;
+}
+.fo15 ul li em.lv2 {
+    background: #66bfff none repeat scroll 0 0;
+}
+.fo15 ul li em.lv3 {
+    background: #8fa6bc none repeat scroll 0 0;
+}
+.fo15 ul li em.lv4 {
+    background: #9c9a95 none repeat scroll 0 0;
+}
+.fo15 .cont .contbox {
+    position: relative;
+}
+.fo15 .cont .contbox .linecont {
+    height: 160px;
     position: absolute;
     top: 70px;
     width: 1590px;
-    height: 160px;
 }
 .fo15 {
+}
+.live {
+    margin-top: 18px;border-bottom: 1px solid #79baea;height: 276px;
+}
+.live .t {
+}
+.live .t h2 {
+    float: left;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 40px;
+    text-indent: 20px;
+}
+.live .t ul {
+    float: left;
+    margin-left: 29px;
+}
+.live .t ul li {
+    border-bottom: 2px solid #f2f4f7;
+    color: #5e6c7a;
+    float: left;
+    font-size: 14px;
+    line-height: 38px;
+    margin-right: 9px;
+    padding-left: 10px;
+    padding-right: 16px;
+}
+.live .t ul li i {
+    float: left;
+    height: 22px;
+    margin-top: 7px;
+    width: 22px;
+}
+.live .t ul li.zwx i {
+}
+.live .t ul li.zwx.on i {
+    background-position: 0 -243px;
+}
+.live .t ul li.cy i {
+    background-position: 0 -271px;
+}
+.live .t ul li.xc i {
+    background-position: 0 -299px;
+}
+.live .t ul li.ly i {
+    background-position: 0 -328px;
+}
+.live .t ul li.gm i {
+    background-position: 0 -355px;
+}
+.live .t ul li.yd i {
+    background-position: 0 -382px;
+}
+.live .t ul li span {
+    margin-left: 2px;
+}
+.live .t i.btn {
+    background-position: 0 -416px;
+    cursor: pointer;
+    float: right;
+    height: 24px;
+    margin-right: 14px;
+    margin-top: 8px;
+    width: 24px;
+}
+.live .cont {
+}
+.live .cont ul {
+    background: #fff none repeat scroll 0 0;
+    padding-left: 20px;
+}
+.live .cont ul li {
+    border-right: 1px solid #f3f3f3;
+    float: left;
+    height: 190px;
+    margin-top: 27px;
+    position: relative;
+    text-align: center;
+    width: 137px;
+}
+.live .cont ul li h3 {
+    color: #5e6c7a;
+    font-size: 12px;
+    margin-top: -12px;
+    text-align: center;
+}
+.live .cont ul li div {
+    height: 60px;
+    margin: 10px auto;
+    position: relative;
+    width: 60px;
+}
+.live .cont ul li div span {
+    border: 2px solid #d6d6d6;
+    border-radius: 50%;
+    color: #252525;
+    display: block;
+    font-size: 20px;
+    height: 52px;
+    left: 0;
+    line-height: 52px;
+    
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 52px;
+}
+.live .cont ul li div em {
+    border: 2px solid #d6d6d6;
+    border-radius: 50%;
+    display: block;
+    height: 52px;
+    
+    width: 52px;
+}
+.live .cont ul li p {
+    color: #a7b0bf;
+    font-size: 12px;
+    margin: 0 auto;
+    width: 100px;
+}
+.live .cont {
+}
+.live .cont {
+}
+.live .cont {
+}
+.live {
+}
+.live {
+}
+.live {
+}
+.live {
 }
