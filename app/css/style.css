@@ -5,7 +5,7 @@
     padding: 0;
 }
 body {
-    background: #fff none repeat scroll 0 0;
+    background: #f2f4f7 none repeat scroll 0 0;
     color: #252525;
     font: 14px/1.6 "Microsoft Yahei","Tahoma","SimSun";
 }
@@ -573,6 +573,7 @@ i {
 .fo15 {
     height: 437px;
     margin-top: 20px;
+    background: #fff;
 }
 .fo15 h3.tit {
     line-height: 34px;
@@ -665,11 +666,14 @@ i {
 .fo15 {
 }
 .live {
+    background: #fff;
     border-bottom: 1px solid #79baea;
     height: 276px;
     margin-top: 18px;
 }
 .live .t {
+    border-bottom: 2px solid #f2f4f7;
+    height: 38px;
 }
 .live .t h2 {
     float: left;
@@ -683,6 +687,7 @@ i {
     margin-left: 29px;
 }
 .live .t ul li {
+    cursor: pointer;
     border-bottom: 2px solid #f2f4f7;
     color: #5e6c7a;
     float: left;
@@ -699,6 +704,9 @@ i {
     width: 22px;
 }
 .live .t ul li.zwx i {
+}
+.live .t ul li.zwx.on{
+    border-bottom: 2px solid #79baea;
 }
 .live .t ul li.zwx.on i {
     background-position: 0 -243px;
@@ -758,19 +766,28 @@ i {
     width: 60px;
 }
 .live .cont ul li div span {
-    border: 2px solid #d6d6d6;
-    border-radius: 50%;
+    /*border: 2px solid #d6d6d6;*/
+    /*border-radius: 50%;*/
     color: #252525;
     display: block;
     font-size: 20px;
-    height: 52px;
+    height: 56px;
     left: 0;
-    line-height: 52px;
+    line-height: 56px;
     position: absolute;
     text-align: center;
     top: 0;
-    width: 52px;
+    width: 56px;
+
 }
+.live .cont ul li div span.lv1{
+    background: url("../images/lv1.png") no-repeat;}
+.live .cont ul li div span.lv2{
+    background: url("../images/lv2.png") no-repeat;}
+.live .cont ul li div span.lv3{
+    background: url("../images/lv3.png") no-repeat;}
+.live .cont ul li div span.lv4{
+    background: url("../images/lv4.png") no-repeat;}
 .live .cont ul li div em {
     border: 2px solid #d6d6d6;
     border-radius: 50%;
@@ -786,6 +803,7 @@ i {
 }
 .new {
     margin-top: 20px;
+    background: #fff;
 }
 .new h2 {
     font-size: 16px;
@@ -818,10 +836,10 @@ i {
 .new .cont .c ul li {
     line-height: 32px;
 }
-.new .cont .c ul li i {
+.new .cont .c ul li i {background-position: -2px -447px;
     float: left;
     height: 5px;
-    margin: 14px 8px 0 1px;
+    margin: 13px 8px 0 1px;
     width: 5px;
 }
 .new .cont .c ul li a {
@@ -845,7 +863,7 @@ i {
 .new .cont .r .girl .txt h2 {
     font-size: 18px;
     font-weight: bold;
-    line-height: 20px;
+    line-height: 20px;text-indent: 0;
 }
 .new .cont .r .girl .txt p {
     font-size: 12px;
@@ -857,10 +875,10 @@ i {
 .new .cont .r .list li {
     line-height: 32px;
 }
-.new .cont .r .list li i {
+.new .cont .r .list li i {background-position: -2px -447px;
     float: left;
     height: 5px;
-    margin: 12px 7px 0 8px;
+    margin:14px 7px 0 8px;
     width: 5px;
 }
 .new .cont .r .list li a {
