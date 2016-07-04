@@ -1,5 +1,5 @@
 var data24 = [];
-var arrwea = ['晴', '阴', '雨', '大雨', '小雨']
+
 for (var i = 0; i <= 23; i++) {
     var obj = {
         time: i,
@@ -110,7 +110,7 @@ for (var i = 0; i <= 23; i++) {
         H._initWeaData(data24);
         var paper = Raphael('biggt', H.svgW, H.svgH);
         var line = paper.path().attr({"stroke": "#fff", "stroke-width": 2});
-        var fill = paper.path().attr({"stroke": "none", fill: "#75b8e2", opacity: 0.8});
+        var fill = paper.path().attr({"stroke": "none", fill: "#4ba0df", opacity: 0.4});
         var objCircle = [];  //存储点circle对象的 数组
         var originX = H.arrCircle[0].x;
         var originY = H.arrCircle[0].y;
@@ -131,7 +131,7 @@ for (var i = 0; i <= 23; i++) {
             var circleY = H.arrCircle[i].y;
             //画背景线 竖线
             paper.path('M0,' + H.svgH + ',L0,' + circleY).attr({
-                "stroke": "#ddd",
+                "stroke": "#8ac3e6",
                 "stroke-width": 1
             }).translate(circleX, 0);
             (function () {
@@ -151,9 +151,18 @@ for (var i = 0; i <= 23; i++) {
             })()
             //温度
             $tem.append($('<em style="width:' + H.cel_w + 'px;left:' + H.cel_w * i + 'px;top:' + (circleY - 25) + 'px">' + H.arrTem[i] + '℃</em>'));
-            //天气图标
-            $weapic.append($('<div class="weatxt w' + H.arrWeaTxt[i] + '" style="width:' + H.cel_w + 'px;left:' + H.cel_w * i + 'px;">' +
-                arrwea[H.arrWeaTxt[i]] + '</div>'));
+            //天气现象
+            var arrwea = ['晴', '阴', '雨', '大雨', '小雨']
+            var weatxtWidth = H.cel_w;
+
+            if(i && H.arrWeaTxt[i]==H.arrWeaTxt[i-1]){console.log(11)
+                var $weatxt = $weapic.find(".weatxt:last");
+                $weatxt.css("width",$weatxt.width()+ H.cel_w).attr('')
+            }else{
+                $weapic.append($('<div class="weatxt w' + H.arrWeaTxt[i] + '" style="width:' + H.cel_w + 'px;left:' + H.cel_w * i + 'px;">' +
+                    arrwea[H.arrWeaTxt[i]] + '</div>'));
+            }
+
         }
         line.attr({"path": "M" + H.linePath});
         fill.attr({"path": "M" + H.fillPath})
