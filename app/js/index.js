@@ -180,12 +180,13 @@ for (var i = 0; i <= 23; i++) {
                 wl:"4级别",
                 blueLv:"lv"+(parseInt(Math.random()*3)+1)
             })
-        }
+        }console.log(temp15daydatas)
         //=================datas temp =================
         //上边的线  白天的线  初始化
         var TL = new CreatLine();
         TL.svgH = 80;
         TL.topPadding = 20
+        TL.svgW = 1590;
         TL.bottomPadding = 0
         TL._makeData = function () {
             var _this = this;
@@ -201,6 +202,7 @@ for (var i = 0; i <= 23; i++) {
         BL.svgH = 160;
         BL.topPadding = 80
         BL.bottomPadding = 20
+        BL.svgW = 1590;
         BL._makeData = function () {
             var _this = this;
             $.each(_this.arrDatas, function (i, v) {
@@ -230,6 +232,7 @@ for (var i = 0; i <= 23; i++) {
                 'cx': circleX,
                 'cy': circleY
             });
+            paper.text(circleX,circleY-14,TL.arrTem[i]+'℃').attr({"font-size":"14px","color":"#252525"})
             objCircle.push(cir);
             //天气图标
         }
@@ -246,8 +249,9 @@ for (var i = 0; i <= 23; i++) {
                 'fill': '#79baea',
                 'stroke': 'none'
             });
+            paper.text(circleX,circleY+14,BL.arrTem[i]+'℃').attr({"font-size":"14px","color":"#252525"})
+
         }
-        //paper.path().attr({fill:"#fff",opacity:0.5,path:"M"+ H.linePath +"," +BL.arrCircle.reverse().join(',')})
 
     }()
 
